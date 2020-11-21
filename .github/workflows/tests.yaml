@@ -29,10 +29,13 @@ jobs:
           pip install --constraint=.github/workflows/constraints.txt pip
           pip --version
 
-      - name: Install Poetry
+      - name: Install Python modules
         run: |
-          pip install --constraint=.github/workflows/constraints.txt pre-commit
+          pip install --constraint=.github/workflows/constraints.txt pre-commit black flake8 reorder-python-imports
           pre-commit --version
+          black --version
+          flake8 --version
+          reorder-python-imports --version
 
       - name: Run pre-commit on all files
         run: |
